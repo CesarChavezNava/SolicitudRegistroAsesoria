@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+ 
+<html lang="es">
+ 
+<head>
+    <title>Dinamyc Form</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/materialize.css" />
+
+    <script src="app/js/jquery.js"></script>
+    <script src="app/js/materialize.js"></script>
+    <script src="app/js/angular.js"></script>
+    <script src="app/js/angular-route.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/formController.js"></script>
+    <script src="app/services/formService.js"></script>
+    <script src="app/directives/formDirective.js"></script>
+</head>
+<body ng-app="app">
+    <header>
+        <nav class="top-nav blue">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <span class="page-title">Dinamyc Form</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="blue lighten-5" style="padding-top: 1em;">
+        <div class="container" ng-view></div>
+    </section>
+</body>
+</html>
