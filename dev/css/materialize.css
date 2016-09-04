@@ -3434,6 +3434,7 @@ input[type=range] + .thumb {
 .section {
   padding-top: 1rem;
   padding-bottom: 1rem;
+  margin: 0 2em;
 }
 
 .section.no-pad {

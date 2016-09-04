@@ -3,7 +3,7 @@
 <html lang="es">
  
 <head>
-    <title>Dinamyc Form</title>
+    <title>Solicitud de Registro de Centro de Asesoría.</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/materialize.css" />
@@ -16,19 +16,190 @@
     <script src="app/controllers/formController.js"></script>
     <script src="app/services/formService.js"></script>
     <script src="app/directives/formDirective.js"></script>
+
+    <script>
+    $(function(){
+        $('input[type=date]').next('label').addClass('active');
+    });
+    </script>
 </head>
 <body ng-app="app">
     <header>
         <nav class="top-nav blue">
             <div class="container">
                 <div class="nav-wrapper">
-                    <span class="page-title">Dinamyc Form</span>
+                    <span class="page-title">Solicitud de Registro de Centro de Asesoría.</span>
                 </div>
             </div>
         </nav>
     </header>
-    <section class="blue lighten-5" style="padding-top: 1em;">
-        <div class="container" ng-view></div>
+    <section class="blue lighten-5" style="padding-top: 1em;">        
+        <div class="row">
+            <div class="col s3 offset-s7 right-align"><span class="flow-text">Fecha de Convenio: </span></div>
+            <div class="col s2"><input type="date" id="fechaConvenio"></div>
+        </div>
+        <div class="row">
+            <div class="input-field  col s3 offset-s6">
+                <input id="oficinaRegional" type="text" class="validate">
+                <label for="oficinaRegional">Oficina Regional</label>
+            </div>
+            <div class="input-field col s3">
+                <input id="numeroConvenio" type="text" class="validate">
+                <label for="numeroConvenio">Numero de Convenio</label>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+            <h5>Datos de Identificación</h5>
+            <p>1. Institución que solicita el registro</p>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="nombreInstitucion" type="text" class="validate" value="ROCIO CATALUÑA">
+                    <label for="nombreInstitucion">Nombre con el que se constituye la institución</label>
+                </div>       
+            </div>
+            <p>2. Nombre del Representante legal de la intitución.</p>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input id="nombreRespresentanteLegal" type="text" class="validate" value="ROCIO CATALUÑA">
+                    <label for="nombreRespresentanteLegal">Nombre(s)</label>  
+                </div>
+                <div class="input-field col s4">
+                    <input id="apellidoPaternoRespresentanteLegal" type="text" class="validate" value="SANTIAGO">
+                    <label for="apellidoPaternoRespresentanteLegal">Apellido Paterno</label>  
+                </div>
+                <div class="input-field col s4">
+                    <input id="apellidoMaternoRespresentanteLegal" type="text" class="validate" value="NAVA">
+                    <label for="apellidoMaternoRespresentanteLegal">Apellido Materno</label>  
+                </div>
+            </div>
+            <div class="row">
+                <p>3.</p>
+                <div class="col s4">
+                    <p>En caso de persona física:</p>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="claveRegistroFederal" type="text" class="validate" value="MORI898393FG5">
+                            <label for="claveRegistroFederal">Clave de Registro Federal de contribuyentes</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="folioIdentificacionOficial" type="text" class="validate" value="390873947485335435">
+                            <label for="folioIdentificacionOficial">Folio de Identificación Oficial</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s8">
+                    <p class="center-align">En caso de Persona Moral:</p>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="numeroActaConstitutiva" type="text" class="validate" value="">
+                            <label for="numeroActaConstitutiva">Numero de Acta Constitutiva</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="fechaEmision" type="date" class="validate" value="">
+                            <label for="fechaEmision">Fecha Emisión</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="numeroNotarioPublico" type="text" class="validate" value="">
+                            <label for="numeroNotarioPublico">Numero de notario publico</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="entidadFederativa" type="text" class="validate" value="">
+                            <label for="entidadFederativa">Entidad federativa</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <p>Cuando presente el poder notarial:</p>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="nombrePoderNotarial" type="text" class="validate" value="">
+                            <label for="nombrePoderNotarial">Nombre del poder notarial</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="poderNotarialFechaEmision" type="date" value="">
+                            <label for="poderNotarialFechaEmision">Fecha de emisión</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="numeroNotarioPublico" type="text" class="validate" value="">
+                            <label for="numeroNotarioPublico">Numero notario publico</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="poderNotarialEntidadFederativa" type="date" value="">
+                            <label for="poderNotarialEntidadFederativa">Entidad federativa</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <p>En caso de Ayuntamiento:</p>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="casoAyuntamientoTipoDocumento" type="text" class="validate" value="">
+                            <label for="casoAyuntamientoTipoDocumento">Tipo de documento</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="casoAyuntamientoFechaEmision" type="date" value="">
+                            <label for="casoAyuntamientoFechaEmision">Fecha Emisión</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>4. Domicilio de la institución:</p>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input id="domicilioInstitucionCalle" type="text" class="validate" value="">
+                    <label for="domicilioInstitucionCalle">Calle</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="domicilioInstitucionNumeroExteriorInteriorPiso" type="text" class="validate" value="">
+                    <label for="domicilioInstitucionNumeroExteriorInteriorPiso">Número exterior, interior y piso</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="domicilioInstitucionColonia" type="text" class="validate" value="">
+                    <label for="domicilioInstitucionColonia">Colonia</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s2">
+                    <input id="domicilioInstitucionCP" type="text" class="validate" value="">
+                    <label for="domicilioInstitucionCP">Código postal</label>
+                </div>
+                <div class="input-field col s2">
+                    <input id="domicilioInstitucionLocalidad" type="text" class="validate" value="">
+                    <label for="domicilioInstitucionLocalidad">Localidad</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="domicilioInstitucionDelegacionMunicipio" type="text" class="validate" value="">
+                    <label for="domicilioInstitucionDelegacionMunicipio">Delegación o Municipio</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="domicilioInstitucionEntidadFederativa" type="text" class="validate" value="">
+                    <label for="domicilioInstitucionEntidadFederativa">Entidad Federativa</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s2">
+                    <input id="domicilioInstitucionClaveLada" type="text" class="validate" value="">
+                    <label for="domicilioInstitucionClaveLada">Clave Lada</label>
+                </div>
+                <div class="input-field col s2">
+                    <input id="domicilioInstitucionTelefonos" type="text" class="validate" value="">
+                    <label for="domicilioInstitucionTelefonos">Teléfono(s)</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="domicilioInstitucionEmail" type="email" class="validate" value="">
+                    <label for="domicilioInstitucionEmail">Correo electrónico</label>
+                </div>
+            </div>
+        </div>
     </section>
 </body>
 </html>
