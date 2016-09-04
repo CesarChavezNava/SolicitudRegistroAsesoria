@@ -15,13 +15,7 @@
     <script src="app/app.js"></script>
     <script src="app/controllers/formController.js"></script>
     <script src="app/services/formService.js"></script>
-    <script src="app/directives/formDirective.js"></script>
-
-    <script>
-    $(function(){
-        $('input[type=date]').next('label').addClass('active');
-    });
-    </script>
+    <script src="app/directives/dateDirective.js"></script>
 </head>
 <body ng-app="app">
     <header>
@@ -98,8 +92,7 @@
                             <label for="numeroActaConstitutiva">Numero de Acta Constitutiva</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="fechaEmision" type="date" class="validate" value="">
-                            <label for="fechaEmision">Fecha Emisión</label>
+                            <per-Date id="personaMoralFechaEmision" texto="Fecha Emisión"></per-Date>
                         </div>
                     </div>
                     <div class="row">
@@ -123,8 +116,7 @@
                             <label for="nombrePoderNotarial">Nombre del poder notarial</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="poderNotarialFechaEmision" type="date" value="">
-                            <label for="poderNotarialFechaEmision">Fecha de emisión</label>
+                            <per-Date id="poderNotarialFechaEmision" texto="Fecha Emisión"></per-Date>
                         </div>
                     </div>
                     <div class="row">
@@ -133,7 +125,7 @@
                             <label for="numeroNotarioPublico">Numero notario publico</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="poderNotarialEntidadFederativa" type="date" value="">
+                            <input id="poderNotarialEntidadFederativa" type="text" value="">
                             <label for="poderNotarialEntidadFederativa">Entidad federativa</label>
                         </div>
                     </div>
@@ -146,8 +138,7 @@
                             <label for="casoAyuntamientoTipoDocumento">Tipo de documento</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="casoAyuntamientoFechaEmision" type="date" value="">
-                            <label for="casoAyuntamientoFechaEmision">Fecha Emisión</label>
+                            <per-Date id="casoAyuntamientoFechaEmision" texto="Fecha Emisión"></per-Date>
                         </div>
                     </div>
                 </div>
