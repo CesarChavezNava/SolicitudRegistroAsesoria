@@ -2,7 +2,7 @@ app.directive('perColumn', function(){
     return {
         restrict: 'EA',
         link: function(scope, element, attrs) {
-            // attrs.size = clase con el tamaño de la columna
+            // attrs.size = clase con el tamaño de la columna materialize
             // attrs.type = tipo del input
             // attrs.id = id del input y for del label
             // attrs.model = modelo correspondiente del ng-model
