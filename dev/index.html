@@ -13,10 +13,9 @@
     <script src="app/js/angular.js"></script>
     <script src="app/js/angular-route.js"></script>
     <script src="app/app.js"></script>
-    <script src="app/controllers/formController.js"></script>
-    <script src="app/services/formService.js"></script>
+    <script src="app/services/solRegEmpService.js"></script>
+    <script src="app/controllers/solRegEmpController.js"></script>
     <script src="app/directives/dateDirective.js"></script>
-    <script src="app/directives/columnDirective.js"></script>
     <script src="app/views/registryForm.js"></script>
 </head>
 <body ng-app="app">
@@ -29,30 +28,48 @@
             </div>
         </nav>
     </header>
+    <form name="formSolRegEmp" ng-controller="SolRegEmpCtrl">
     <section class="blue lighten-5" style="padding-top: 1em;">    
-        <div ng-include src="'views/default.html'"></div>
-        
+        <div class="row">
+            <div class="col s3 offset-s7 right-align"><span class="flow-text">Fecha de Convenio: </span></div>
+            <div class="col s2"><input type="date" id="fechaConvenio" ng-model="solRegEmpObj.fechaConvenio"></div>
+        </div>
+        <div class="row">
+            <div class="input-field  col s3 offset-s6">
+                <input id="oficinaRegional" type="text" class="validate" ng-model="solRegEmpObj.oficinaRegional">
+                <label for="oficinaRegional">Oficina Regional</label>
+            </div>
+            <div class="input-field col s3">
+                <input id="numeroConvenio" type="text" class="validate" ng-model="solRegEmpObj.numeroConvenio">
+                <label for="numeroConvenio">Numero de Convenio</label>
+            </div>
+        </div>
+        <div class="divider"></div>
         <div class="section">
             <h5>Datos de Identificación</h5>
             <blockquote><p>1. Institución que solicita el registro</p></blockquote>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="nombreInstitucion" type="text" class="validate" value="ROCIO CATALUÑA">
+                    <input id="nombreInstitucion" type="text" class="validate"  
+                        ng-model="solRegEmpObj.datosIdentificacion.institucionSolicitaRegistro.nombreConstituyeInstitucion">
                     <label for="nombreInstitucion">Nombre con el que se constituye la institución</label>
                 </div>       
             </div>
             <blockquote><p>2. Nombre del Representante legal de la institución.</p></blockquote>
             <div class="row">
                 <div class="input-field col s4">
-                    <input id="nombreRespresentanteLegal" type="text" class="validate" value="ROCIO CATALUÑA">
+                    <input id="nombreRespresentanteLegal" type="text" class="validate" 
+                        ng-model="solRegEmpObj.datosIdentificacion.nombreRepresentacionLegalInstitucion.nombres">
                     <label for="nombreRespresentanteLegal">Nombre(s)</label>  
                 </div>
                 <div class="input-field col s4">
-                    <input id="apellidoPaternoRespresentanteLegal" type="text" class="validate" value="SANTIAGO">
+                    <input id="apellidoPaternoRespresentanteLegal" type="text" class="validate" 
+                        ng-model="solRegEmpObj.datosIdentificacion.nombreRepresentacionLegalInstitucion.apellidoPaterno">
                     <label for="apellidoPaternoRespresentanteLegal">Apellido Paterno</label>  
                 </div>
                 <div class="input-field col s4">
-                    <input id="apellidoMaternoRespresentanteLegal" type="text" class="validate" value="NAVA">
+                    <input id="apellidoMaternoRespresentanteLegal" type="text" class="validate" 
+                        ng-model="solRegEmpObj.datosIdentificacion.nombreRepresentacionLegalInstitucion.apellidoMaterno">
                     <label for="apellidoMaternoRespresentanteLegal">Apellido Materno</label>  
                 </div>
             </div>
@@ -62,13 +79,15 @@
                     <p>En caso de persona física:</p>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="claveRegistroFederal" type="text" class="validate" value="MORI898393FG5">
+                            <input id="claveRegistroFederal" type="text" class="validate" 
+                                ng-model="solRegEmpObj.datosIdentificacion.casoPersonaFisica.claveRegistroFederal">
                             <label for="claveRegistroFederal">Clave de Registro Federal de contribuyentes</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="folioIdentificacionOficial" type="text" class="validate" value="390873947485335435">
+                            <input id="folioIdentificacionOficial" type="text" class="validate" 
+                                ng-model="solRegEmpObj.datosIdentificacion.casoPersonaFisica.folioIdentificacionOficial">
                             <label for="folioIdentificacionOficial">Folio de Identificación Oficial</label>
                         </div>
                     </div>
@@ -77,7 +96,8 @@
                     <p class="center-align">En caso de Persona Moral:</p>
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="numeroActaConstitutiva" type="text" class="validate" value="">
+                            <input id="numeroActaConstitutiva" type="text" class="validate" 
+                                ng-model="">
                             <label for="numeroActaConstitutiva">Numero de Acta Constitutiva</label>
                         </div>
                         <per-Date clase="input-field col s6" id="personaMoralFechaEmision" texto="Fecha Emisión"></per-Date>
@@ -122,15 +142,8 @@
                             <input id="casoAyuntamientoTipoDocumento" type="text" class="validate" value="">
                             <label for="casoAyuntamientoTipoDocumento">Tipo de documento</label>
                         </div>
-<<<<<<< HEAD
                         <per-column size="s6" id="casoAyuntamientoFechaEmision" type="date" text="Fecha Emisión" model="sec1.mod1">
                         </per-column>
-                        <!--
-                        <per-Date clase="input-field col s6" id="casoAyuntamientoFechaEmision" texto="Fecha Emisión"></per-Date>
-                        -->
-=======
-                        <per-Date clase="input-field col s6" id="casoAyuntamientoFechaEmision" texto="Fecha Emisión" value="1989-12-30"></per-Date>
->>>>>>> 695d49b41a9aea0d78f55a61ff0a8a7fca38a06d
                     </div>
                 </div>
             </div>
@@ -232,5 +245,6 @@
             </div>
 		</div>
     </section>
+    </form>
 </body>
 </html>

@@ -11,7 +11,7 @@ app.directive('perColumn', function(){
             element.find("div")[0].classList.add(attrs.size);
             element.find("input")[0].setAttribute("type", attrs.type);
             element.find("input")[0].setAttribute("id", attrs.id);
-            element.find("input")[0].setAttribute("ng-model", "{{" + attrs.model + "}}");
+            element.find("input")[0].setAttribute("ng-model", attrs.model );
             element.find("label")[0].setAttribute("for", attrs.id);
             element.find("label")[0].innerText = attrs.text;
 
@@ -19,6 +19,6 @@ app.directive('perColumn', function(){
                 element.find("label")[0].classList.add("active");
             }
         },
-        template: '<div class="input field col"><label></label><input></div>'
+        template: '<div class="input-field col"><label></label><input ng-model=""></div>'
     }
 });
