@@ -16,6 +16,7 @@
     <script src="app/controllers/formController.js"></script>
     <script src="app/services/formService.js"></script>
     <script src="app/directives/dateDirective.js"></script>
+    <script src="app/directives/columnDirective.js"></script>
 </head>
 <body ng-app="app">
     <header>
@@ -27,22 +28,9 @@
             </div>
         </nav>
     </header>
-    <section class="blue lighten-5" style="padding-top: 1em;">        
-        <div class="row">
-            <div class="col s3 offset-s7 right-align"><span class="flow-text">Fecha de Convenio: </span></div>
-            <div class="col s2"><input type="date" id="fechaConvenio"></div>
-        </div>
-        <div class="row">
-            <div class="input-field  col s3 offset-s6">
-                <input id="oficinaRegional" type="text" class="validate">
-                <label for="oficinaRegional">Oficina Regional</label>
-            </div>
-            <div class="input-field col s3">
-                <input id="numeroConvenio" type="text" class="validate">
-                <label for="numeroConvenio">Numero de Convenio</label>
-            </div>
-        </div>
-        <div class="divider"></div>
+    <section class="blue lighten-5" style="padding-top: 1em;">    
+        <div ng-include src="'views/default.html'"></div>
+        
         <div class="section">
             <h5>Datos de Identificación</h5>
             <p>1. Institución que solicita el registro</p>
@@ -133,7 +121,11 @@
                             <input id="casoAyuntamientoTipoDocumento" type="text" class="validate" value="">
                             <label for="casoAyuntamientoTipoDocumento">Tipo de documento</label>
                         </div>
+                        <per-column size="s6" id="casoAyuntamientoFechaEmision" type="date" text="Fecha Emisión" model="sec1.mod1">
+                        </per-column>
+                        <!--
                         <per-Date clase="input-field col s6" id="casoAyuntamientoFechaEmision" texto="Fecha Emisión"></per-Date>
+                        -->
                     </div>
                 </div>
             </div>

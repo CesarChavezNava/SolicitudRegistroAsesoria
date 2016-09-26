@@ -1,7 +1,16 @@
-<div class="row" ng-controller="FormCtrl">
-    <form name="formDefault" class="col s12">
-        <div class="row" ng-repeat="component in components">
-            <create-component component="{{ component }}"></create-component>
-        </div>
-    </form>
+
+<div class="row">
+    <div class="col s3 offset-s7 right-align"><span class="flow-text">Fecha de Convenio: </span></div>
+    <div class="col s2"><input type="date" id="fechaConvenio"></div>
 </div>
+<div class="row">
+    <div class="input-field  col s3 offset-s6">
+        <input id="oficinaRegional" type="text" class="validate">
+        <label for="oficinaRegional">Oficina Regional</label>
+    </div>
+    <div class="input-field col s3">
+        <input id="numeroConvenio" type="text" class="validate">
+        <label for="numeroConvenio">Numero de Convenio</label>
+    </div>
+</div>
+<div class="divider"></div>
