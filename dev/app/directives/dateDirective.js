@@ -4,8 +4,9 @@ app.directive('perDate', function(){
         scope: {
             clase: '@clase',
             id: '@id',
-            texto: '@texto'
+            texto: '@texto',
+            value: '@value'
         },
-        template: '<div class="{{ clase }}"><input id="{{ id }}" type="date" value=""><label for="{{ id }}" class="active">{{ texto }}</label></div>'
+        template: '<div class="{{ clase }}"><input id="{{ id }}" type="date" value="{{ value }}"><label for="{{ id }}" class="active">{{ texto }}</label></div>'
     }
 });
