@@ -4,10 +4,254 @@
  
 <head>
     <title>Solicitud de Registro de Centro de Asesoría.</title>
-    <meta charset="utf-8" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/materialize.css" />
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8" />
+</head>
+<body ng-app="app">
+	<header>
+		<div class="navbar-fixed">
+			<nav class="top-nav blue" ng-controller="navbarCtrl">
+				<div class="nav-wrapper">
+				<h5 class="brand-logo center">Solicitud de Registro de Centro de Asesoría</h5>
+					<ul id="nav-mobile" class="left hide-on-med-and-down">
+						<li><a class="waves-effect waves-light btn"	ng-click="leerEjemplo()"><i class="material-icons left">cloud</i>Leer Ejemplo</a></li>
+						<li><a href="badges.html">Components</a></li>
+						<li><a href="collapsible.html">JavaScript</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<div class="section white">
+	    <div class="container">
+		    <form name="formSolRegEmp" ng-controller="SolRegEmpCtrl">
+		    	<div class="section">
+			        <div class="row">
+			            <div class="input-field col s6 l3 offset-s6 offset-l9">
+			            	<input id="fechaConvenio" type="date" class="datepicker validate" ng-model="solRegEmpObj.fechaConvenio ">
+			            	<label for="fechaConvenio">Fecha Convenio</label>
+			            </div>
+			        </div>
+			        <div class="row">
+			            <div class="input-field col s6 l3 offset-s6 offset-l6">
+			                <input id="oficinaRegional" type="text" class="validate" ng-model="solRegEmpObj.oficinaRegional">
+			                <label for="oficinaRegional">Oficina Regional</label>
+			            </div>
+			            <div class="input-field col s6 l3 offset-s6">
+			                <input id="numeroConvenio" type="text" class="validate" ng-model="solRegEmpObj.numeroConvenio">
+			                <label for="numeroConvenio">Numero de Convenio</label>
+			            </div>
+			        </div>
+		        </div>
+		        <div class="divider"></div>
+		        <div class="section">
+		            <h5>Datos de Identificación</h5>
+		            <blockquote><p>1. Institución que solicita el registro</p></blockquote>
+		            <div class="row">
+		                <div class="input-field col s12">
+		                    <input id="nombreInstitucion" type="text" class="validate"  
+		                        ng-model="solRegEmpObj.datosIdentificacion.institucionSolicitaRegistro.nombreConstituyeInstitucion">
+		                    <label for="nombreInstitucion">Nombre con el que se constituye la institución</label>
+		                </div>
+		            </div>
+		            <blockquote><p>2. Nombre del Representante legal de la institución.</p></blockquote>
+		            <div class="row">
+		                <div class="input-field col s4">
+		                    <input id="nombreRespresentanteLegal" type="text" class="validate" 
+		                        ng-model="solRegEmpObj.datosIdentificacion.nombreRepresentacionLegalInstitucion.nombres">
+		                    <label for="nombreRespresentanteLegal">Nombre(s)</label>  
+		                </div>
+		                <div class="input-field col s4">
+		                    <input id="apellidoPaternoRespresentanteLegal" type="text" class="validate" 
+		                        ng-model="solRegEmpObj.datosIdentificacion.nombreRepresentacionLegalInstitucion.apellidoPaterno">
+		                    <label for="apellidoPaternoRespresentanteLegal">Apellido Paterno</label>  
+		                </div>
+		                <div class="input-field col s4">
+		                    <input id="apellidoMaternoRespresentanteLegal" type="text" class="validate" 
+		                        ng-model="solRegEmpObj.datosIdentificacion.nombreRepresentacionLegalInstitucion.apellidoMaterno">
+		                    <label for="apellidoMaternoRespresentanteLegal">Apellido Materno</label>  
+		                </div>
+		            </div>
+		            <blockquote><p>3. En caso.</p></blockquote>
+		            <div class="row">
+		                <div class="col s4">
+		                    <p>En caso de persona física:</p>
+		                    <div class="row">
+		                        <div class="input-field col s12">
+		                            <input id="claveRegistroFederal" type="text" class="validate" 
+		                                ng-model="solRegEmpObj.datosIdentificacion.casoPersonaFisica.claveRegistroFederal">
+		                            <label for="claveRegistroFederal">Clave de Registro Federal de contribuyentes</label>
+		                        </div>
+		                    </div>
+		                    <div class="row">
+		                        <div class="input-field col s12">
+		                            <input id="folioIdentificacionOficial" type="text" class="validate" 
+		                                ng-model="solRegEmpObj.datosIdentificacion.casoPersonaFisica.folioIdentificacionOficial">
+		                            <label for="folioIdentificacionOficial">Folio de Identificación Oficial</label>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="col s8">
+		                    <p class="center-align">En caso de Persona Moral:</p>
+		                    <div class="row">
+		                        <div class="input-field col s6">
+		                            <input id="numeroActaConstitutiva" type="text" class="validate" 
+		                                ng-model="solRegEmpObj.datosIdentificacion.casoPersonaFisica.numeroActaConstitutiva">
+		                            <label for="numeroActaConstitutiva">Numero de Acta Constitutiva</label>
+		                        </div>
+<!-- 		                        <per-Date clase="input-field col s6" id="personaMoralFechaEmision" texto="Fecha Emisión"></per-Date> -->
+					            <div class="input-field col s6">
+					            	<input id="personaMoralFechaEmision" type="date" class="datepicker validate" ng-model="solRegEmpObj.datosIdentificacion.casoPersonaFisica.personaMoralFechaEmision">
+					            	<label for="personaMoralFechaEmision">Fecha Convenio</label>
+					            </div>
+		                    </div>
+		                    <div class="row">
+		                        <div class="input-field col s6">
+		                            <input id="numeroNotarioPublico" type="text" class="validate" value="">
+		                            <label for="numeroNotarioPublico">Numero de notario publico</label>
+		                        </div>
+		                        <div class="input-field col s6">
+		                            <input id="entidadFederativa" type="text" class="validate" value="">
+		                            <label for="entidadFederativa">Entidad federativa</label>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col s6">
+		                    <p>Cuando presente el poder notarial:</p>
+		                    <div class="row">
+		                        <div class="input-field col s6">
+		                            <input id="nombrePoderNotarial" type="text" class="validate" value="">
+		                            <label for="nombrePoderNotarial">Nombre del poder notarial</label>
+		                        </div>
+<!-- 		                        <per-Date clase="input-field col s6" id="poderNotarialFechaEmision" texto="Fecha Emisión"></per-Date> -->
+		                    </div>
+		                    <div class="row">
+		                        <div class="input-field col s6">
+		                            <input id="numeroNotarioPublico" type="text" class="validate" value="">
+		                            <label for="numeroNotarioPublico">Numero notario publico</label>
+		                        </div>
+		                        <div class="input-field col s6">
+		                            <input id="poderNotarialEntidadFederativa" type="text" value="">
+		                            <label for="poderNotarialEntidadFederativa">Entidad federativa</label>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="col s6">
+		                    <p>En caso de Ayuntamiento:</p>
+		                    <div class="row">
+		                        <div class="input-field col s6">
+		                            <input id="casoAyuntamientoTipoDocumento" type="text" class="validate" value="">
+		                            <label for="casoAyuntamientoTipoDocumento">Tipo de documento</label>
+		                        </div>
+<!-- 		                        <per-column size="s6" id="casoAyuntamientoFechaEmision" type="date" text="Fecha Emisión" model="sec1.mod1"></per-column> -->
+		                    </div>
+		                </div>
+		            </div>
+		            <blockquote><p>4. Domicilio de la institución:</p></blockquote>
+		            <div class="row">
+		                <div class="input-field col s4">
+		                    <input id="domicilioInstitucionCalle" type="text" class="validate" value="">
+		                    <label for="domicilioInstitucionCalle">Calle</label>
+		                </div>
+		                <div class="input-field col s4">
+		                    <input id="domicilioInstitucionNumeroExteriorInteriorPiso" type="text" class="validate" value="">
+		                    <label for="domicilioInstitucionNumeroExteriorInteriorPiso">Número exterior, interior y piso</label>
+		                </div>
+		                <div class="input-field col s4">
+		                    <input id="domicilioInstitucionColonia" type="text" class="validate" value="">
+		                    <label for="domicilioInstitucionColonia">Colonia</label>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="input-field col s2">
+		                    <input id="domicilioInstitucionCP" type="text" class="validate" value="">
+		                    <label for="domicilioInstitucionCP">Código postal</label>
+		                </div>
+		                <div class="input-field col s2">
+		                    <input id="domicilioInstitucionLocalidad" type="text" class="validate" value="">
+		                    <label for="domicilioInstitucionLocalidad">Localidad</label>
+		                </div>
+		                <div class="input-field col s4">
+		                    <input id="domicilioInstitucionDelegacionMunicipio" type="text" class="validate" value="">
+		                    <label for="domicilioInstitucionDelegacionMunicipio">Delegación o Municipio</label>
+		                </div>
+		                <div class="input-field col s4">
+		                    <input id="domicilioInstitucionEntidadFederativa" type="text" class="validate" value="">
+		                    <label for="domicilioInstitucionEntidadFederativa">Entidad Federativa</label>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="input-field col s2">
+		                    <input id="domicilioInstitucionClaveLada" type="text" class="validate" value="">
+		                    <label for="domicilioInstitucionClaveLada">Clave Lada</label>
+		                </div>
+		                <div class="input-field col s2">
+		                    <input id="domicilioInstitucionTelefonos" type="tel" class="validate" value="">
+		                    <label for="domicilioInstitucionTelefonos">Teléfono(s)</label>
+		                </div>
+		                <div class="input-field col s4">
+		                    <input id="domicilioInstitucionEmail" type="email" class="validate" value="">
+		                    <label for="domicilioInstitucionEmail">Correo electrónico</label>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="section">
+		            <h5>Personal de la institución</h5>
+		            <blockquote><p>5. Persona que se desempeñará como responsable del centro de asesoría:</p></blockquote>
+		            <div class="row">
+		                <div class="input-field col s4">
+		                    <input id="nombreResponsableCentroAsesoria" type="text" class="validate" value="CESAR">
+		                    <label for="nombreResponsableCentroAsesoria">Nombre(s)</label>  
+		                </div>
+		                <div class="input-field col s4">
+		                    <input id="apellidoPaternoResponsableCentroAsesoria" type="text" class="validate" value="CHAVEZ">
+		                    <label for="apellidoPaternoResponsableCentroAsesoria">Apellido Paterno</label>  
+		                </div>
+		                <div class="input-field col s4">
+		                    <input id="apellidoMaternoResponsableCentroAsesoria" type="text" class="validate" value="NAVA">
+		                    <label for="apellidoMaternoResponsableCentroAsesoria">Apellido Materno</label>  
+		                </div>
+		            </div>
+		            <blockquote><p>6. Persona que realizará labores de gestoría:</p></blockquote>
+		            <p>Gestor Titular:</p>
+		            <div class="row">
+		                <div class="input-field col s4">
+		                    <input id="nombreLaboresGestoriaTitular" type="text" class="validate" value="René">
+		                    <label for="nombreLaboresGestoriaTitular">Nombre(s)</label>  
+		                </div>
+		                <div class="input-field col s4">
+		                    <input id="apellidoPaternoLaboresGestoriaTitular" type="text" class="validate" value="SANTIAGO">
+		                    <label for="apellidoPaternoLaboresGestoriaTitular">Apellido Paterno</label>  
+		                </div>
+		                <div class="input-field col s4">
+		                    <input id="apellidoMaternoLaboresGestoriaTitular" type="text" class="validate" value="Reséndiz">
+		                    <label for="apellidoMaternoLaboresGestoriaTitular">Apellido Materno</label>  
+		                </div>
+		            </div>
+					<p>Gestor Auxiliar:</p>
+		            <div class="row">
+		                <div class="input-field col s4">
+		                    <input id="nombreLaboresGestoriaAuxiliar" type="text" class="validate" value="Andrea Leticia">
+		                    <label for="nombreLaboresGestoriaAuxiliar">Nombre(s)</label>  
+		                </div>
+		                <div class="input-field col s4">
+		                    <input id="apellidoPaternoLaboresGestoriaAuxiliar" type="text" class="validate" value="Sanchez">
+		                    <label for="apellidoPaternoLaboresGestoriaAuxiliar">Apellido Paterno</label>  
+		                </div>
+		                <div class="input-field col s4">
+		                    <input id="apellidoMaternoLaboresGestoriaAuxiliar" type="text" class="validate" value="Flores">
+		                    <label for="apellidoMaternoLaboresGestoriaAuxiliar">Apellido Materno</label>  
+		                </div>
+		            </div>
+				</div>
+		    </form>
+	    </div>
+    </div>
     <script src="app/js/jquery.js"></script>
     <script src="app/js/materialize.js"></script>
     <script src="app/js/angular.js"></script>
@@ -15,236 +259,8 @@
     <script src="app/app.js"></script>
     <script src="app/services/solRegEmpService.js"></script>
     <script src="app/controllers/solRegEmpController.js"></script>
+    <script src="app/controllers/navbarController.js"></script>
     <script src="app/directives/dateDirective.js"></script>
     <script src="app/views/registryForm.js"></script>
-</head>
-<body ng-app="app">
-    <header>
-        <nav class="top-nav blue">
-            <div class="container">
-                <div class="nav-wrapper">
-                    <span class="page-title">Solicitud de Registro de Centro de Asesoría</span>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <form name="formSolRegEmp" ng-controller="SolRegEmpCtrl">
-    <section class="blue lighten-5" style="padding-top: 1em;">    
-        <div class="row">
-            <div class="col s3 offset-s7 right-align"><span class="flow-text">Fecha de Convenio: </span></div>
-            <div class="col s2"><input type="date" id="fechaConvenio" ng-model="solRegEmpObj.fechaConvenio"></div>
-        </div>
-        <div class="row">
-            <div class="input-field  col s3 offset-s6">
-                <input id="oficinaRegional" type="text" class="validate" ng-model="solRegEmpObj.oficinaRegional">
-                <label for="oficinaRegional">Oficina Regional</label>
-            </div>
-            <div class="input-field col s3">
-                <input id="numeroConvenio" type="text" class="validate" ng-model="solRegEmpObj.numeroConvenio">
-                <label for="numeroConvenio">Numero de Convenio</label>
-            </div>
-        </div>
-        <div class="divider"></div>
-        <div class="section">
-            <h5>Datos de Identificación</h5>
-            <blockquote><p>1. Institución que solicita el registro</p></blockquote>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="nombreInstitucion" type="text" class="validate"  
-                        ng-model="solRegEmpObj.datosIdentificacion.institucionSolicitaRegistro.nombreConstituyeInstitucion">
-                    <label for="nombreInstitucion">Nombre con el que se constituye la institución</label>
-                </div>       
-            </div>
-            <blockquote><p>2. Nombre del Representante legal de la institución.</p></blockquote>
-            <div class="row">
-                <div class="input-field col s4">
-                    <input id="nombreRespresentanteLegal" type="text" class="validate" 
-                        ng-model="solRegEmpObj.datosIdentificacion.nombreRepresentacionLegalInstitucion.nombres">
-                    <label for="nombreRespresentanteLegal">Nombre(s)</label>  
-                </div>
-                <div class="input-field col s4">
-                    <input id="apellidoPaternoRespresentanteLegal" type="text" class="validate" 
-                        ng-model="solRegEmpObj.datosIdentificacion.nombreRepresentacionLegalInstitucion.apellidoPaterno">
-                    <label for="apellidoPaternoRespresentanteLegal">Apellido Paterno</label>  
-                </div>
-                <div class="input-field col s4">
-                    <input id="apellidoMaternoRespresentanteLegal" type="text" class="validate" 
-                        ng-model="solRegEmpObj.datosIdentificacion.nombreRepresentacionLegalInstitucion.apellidoMaterno">
-                    <label for="apellidoMaternoRespresentanteLegal">Apellido Materno</label>  
-                </div>
-            </div>
-            <div class="row">
-                <blockquote><p>3.</p></blockquote>
-                <div class="col s4">
-                    <p>En caso de persona física:</p>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="claveRegistroFederal" type="text" class="validate" 
-                                ng-model="solRegEmpObj.datosIdentificacion.casoPersonaFisica.claveRegistroFederal">
-                            <label for="claveRegistroFederal">Clave de Registro Federal de contribuyentes</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="folioIdentificacionOficial" type="text" class="validate" 
-                                ng-model="solRegEmpObj.datosIdentificacion.casoPersonaFisica.folioIdentificacionOficial">
-                            <label for="folioIdentificacionOficial">Folio de Identificación Oficial</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s8">
-                    <p class="center-align">En caso de Persona Moral:</p>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="numeroActaConstitutiva" type="text" class="validate" 
-                                ng-model="">
-                            <label for="numeroActaConstitutiva">Numero de Acta Constitutiva</label>
-                        </div>
-                        <per-Date clase="input-field col s6" id="personaMoralFechaEmision" texto="Fecha Emisión"></per-Date>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="numeroNotarioPublico" type="text" class="validate" value="">
-                            <label for="numeroNotarioPublico">Numero de notario publico</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="entidadFederativa" type="text" class="validate" value="">
-                            <label for="entidadFederativa">Entidad federativa</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s6">
-                    <p>Cuando presente el poder notarial:</p>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="nombrePoderNotarial" type="text" class="validate" value="">
-                            <label for="nombrePoderNotarial">Nombre del poder notarial</label>
-                        </div>
-                        <per-Date clase="input-field col s6" id="poderNotarialFechaEmision" texto="Fecha Emisión"></per-Date>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="numeroNotarioPublico" type="text" class="validate" value="">
-                            <label for="numeroNotarioPublico">Numero notario publico</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="poderNotarialEntidadFederativa" type="text" value="">
-                            <label for="poderNotarialEntidadFederativa">Entidad federativa</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s6">
-                    <p>En caso de Ayuntamiento:</p>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="casoAyuntamientoTipoDocumento" type="text" class="validate" value="">
-                            <label for="casoAyuntamientoTipoDocumento">Tipo de documento</label>
-                        </div>
-                        <per-column size="s6" id="casoAyuntamientoFechaEmision" type="date" text="Fecha Emisión" model="sec1.mod1">
-                        </per-column>
-                    </div>
-                </div>
-            </div>
-            <blockquote><p>4. Domicilio de la institución:</p></blockquote>
-            <div class="row">
-                <div class="input-field col s4">
-                    <input id="domicilioInstitucionCalle" type="text" class="validate" value="">
-                    <label for="domicilioInstitucionCalle">Calle</label>
-                </div>
-                <div class="input-field col s4">
-                    <input id="domicilioInstitucionNumeroExteriorInteriorPiso" type="text" class="validate" value="">
-                    <label for="domicilioInstitucionNumeroExteriorInteriorPiso">Número exterior, interior y piso</label>
-                </div>
-                <div class="input-field col s4">
-                    <input id="domicilioInstitucionColonia" type="text" class="validate" value="">
-                    <label for="domicilioInstitucionColonia">Colonia</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s2">
-                    <input id="domicilioInstitucionCP" type="text" class="validate" value="">
-                    <label for="domicilioInstitucionCP">Código postal</label>
-                </div>
-                <div class="input-field col s2">
-                    <input id="domicilioInstitucionLocalidad" type="text" class="validate" value="">
-                    <label for="domicilioInstitucionLocalidad">Localidad</label>
-                </div>
-                <div class="input-field col s4">
-                    <input id="domicilioInstitucionDelegacionMunicipio" type="text" class="validate" value="">
-                    <label for="domicilioInstitucionDelegacionMunicipio">Delegación o Municipio</label>
-                </div>
-                <div class="input-field col s4">
-                    <input id="domicilioInstitucionEntidadFederativa" type="text" class="validate" value="">
-                    <label for="domicilioInstitucionEntidadFederativa">Entidad Federativa</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s2">
-                    <input id="domicilioInstitucionClaveLada" type="text" class="validate" value="">
-                    <label for="domicilioInstitucionClaveLada">Clave Lada</label>
-                </div>
-                <div class="input-field col s2">
-                    <input id="domicilioInstitucionTelefonos" type="tel" class="validate" value="">
-                    <label for="domicilioInstitucionTelefonos">Teléfono(s)</label>
-                </div>
-                <div class="input-field col s4">
-                    <input id="domicilioInstitucionEmail" type="email" class="validate" value="">
-                    <label for="domicilioInstitucionEmail">Correo electrónico</label>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <h5>Personal de la institución</h5>
-            <blockquote><p>5. Persona que se desempeñará como responsable del centro de asesoría:</p></blockquote>
-            <div class="row">
-                <div class="input-field col s4">
-                    <input id="nombreResponsableCentroAsesoria" type="text" class="validate" value="CESAR">
-                    <label for="nombreResponsableCentroAsesoria">Nombre(s)</label>  
-                </div>
-                <div class="input-field col s4">
-                    <input id="apellidoPaternoResponsableCentroAsesoria" type="text" class="validate" value="CHAVEZ">
-                    <label for="apellidoPaternoResponsableCentroAsesoria">Apellido Paterno</label>  
-                </div>
-                <div class="input-field col s4">
-                    <input id="apellidoMaternoResponsableCentroAsesoria" type="text" class="validate" value="NAVA">
-                    <label for="apellidoMaternoResponsableCentroAsesoria">Apellido Materno</label>  
-                </div>
-            </div>
-            <blockquote><p>6. Persona que realizará labores de gestoría:</p></blockquote>
-            <p>Gestor Titular:</p>
-            <div class="row">
-                <div class="input-field col s4">
-                    <input id="nombreLaboresGestoriaTitular" type="text" class="validate" value="René">
-                    <label for="nombreLaboresGestoriaTitular">Nombre(s)</label>  
-                </div>
-                <div class="input-field col s4">
-                    <input id="apellidoPaternoLaboresGestoriaTitular" type="text" class="validate" value="SANTIAGO">
-                    <label for="apellidoPaternoLaboresGestoriaTitular">Apellido Paterno</label>  
-                </div>
-                <div class="input-field col s4">
-                    <input id="apellidoMaternoLaboresGestoriaTitular" type="text" class="validate" value="Reséndiz">
-                    <label for="apellidoMaternoLaboresGestoriaTitular">Apellido Materno</label>  
-                </div>
-            </div>
-			<p>Gestor Auxiliar:</p>
-            <div class="row">
-                <div class="input-field col s4">
-                    <input id="nombreLaboresGestoriaAuxiliar" type="text" class="validate" value="Andrea Leticia">
-                    <label for="nombreLaboresGestoriaAuxiliar">Nombre(s)</label>  
-                </div>
-                <div class="input-field col s4">
-                    <input id="apellidoPaternoLaboresGestoriaAuxiliar" type="text" class="validate" value="Sanchez">
-                    <label for="apellidoPaternoLaboresGestoriaAuxiliar">Apellido Paterno</label>  
-                </div>
-                <div class="input-field col s4">
-                    <input id="apellidoMaternoLaboresGestoriaAuxiliar" type="text" class="validate" value="Flores">
-                    <label for="apellidoMaternoLaboresGestoriaAuxiliar">Apellido Materno</label>  
-                </div>
-            </div>
-		</div>
-    </section>
-    </form>
 </body>
 </html>
